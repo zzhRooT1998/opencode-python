@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "opencode-python"
 version = "0.1.0"
 description = "Python implementation of a local CLI coding assistant."
-readme = { text = "# opencode-python\n", content-type = "text/markdown" }
+readme = "README.md"
 requires-python = ">=3.12"
 authors = [
   { name = "zzh" }

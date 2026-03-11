@@ -296,8 +296,8 @@
   - 回归验证：`python -m pytest tests/cli/test_chat_command.py -v`
 
 ### T13 测试、样例文档与发布准备
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T11、T12
 - 目标：补齐交付闭环，确保 MVP 可验证、可安装、可复现。
 - 交付物：
@@ -310,6 +310,12 @@
   - 本地安装和最小使用流程可按文档复现
   - 文档覆盖配置、命令、权限模式和已知限制
 - 备注：
+  - 已新增 `tests/e2e/test_run_command_e2e.py`，覆盖 `run` 命令接入真实 orchestrator 的轻量端到端链路
+  - 已新增 `.env.example`，补齐 provider、permission 和 data dir 的环境变量示例
+  - 已重写 `README.md`，覆盖安装、配置、命令、权限模式、测试和已知限制；`pyproject.toml` 也已切回引用实际 README
+  - 验证命令：`python -m pytest tests/e2e/test_run_command_e2e.py -v`
+  - 全量验证：`python -m pytest -v`
+  - CLI 校验：`python -m opencode_py --help`
 
 ## 6. 推荐执行顺序
 1. T01 -> T02
