@@ -11,7 +11,8 @@
 ## 2. 执行约定
 - 任务按依赖顺序推进，除非明确标注可并行。
 - 每个任务完成后必须更新本文件中的 `状态`、`完成日期`、`备注`。
-- 每个任务完成后必须执行一次 `git commit` 和 `git push`，保证任务状态与远端分支一致。
+- 当前执行约定：每个任务完成后必须执行一次 `git commit`。
+- 说明：原计划要求每个任务都 `git push`，但当前环境下 GitHub HTTPS 推送持续超时，因此后续任务先以本地 commit 为准。
 - 任务完成的最低标准：代码落地、相关测试通过、文档/配置同步更新。
 
 ## 3. 状态说明
@@ -127,8 +128,8 @@
   - 全量验证：`python -m pytest -v`
 
 ### T05 Tool Runtime 与权限策略
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T02
 - 目标：实现统一工具调用入口与安全控制。
 - 交付物：
@@ -142,6 +143,11 @@
   - shell 工具支持超时、输出截断、stderr 捕获
   - 工具与权限策略有单测覆盖
 - 备注：
+  - 已新增 `PermissionPolicy`、`ToolRuntime` 和 `shell/fs_read/fs_write/search` 工具
+  - ask/allow/deny 三类权限决策已经打通
+  - 工具结果统一落到 `ToolResult`，支持 stdout/stderr/metadata/artifacts
+  - 验证命令：`python -m pytest tests/security/test_policy.py tests/tools/test_tools_runtime.py -v`
+  - 全量验证：`python -m pytest -v`
 
 ### T06 轻量 RAG 索引与检索服务
 - 状态：`todo`
