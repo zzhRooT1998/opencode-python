@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opencode-python"
+version = "0.1.0"
+description = "Python implementation of a local CLI coding assistant."
+readme = { text = "# opencode-python\n", content-type = "text/markdown" }
+requires-python = ">=3.12"
+authors = [
+  { name = "zzh" }
+]
+dependencies = [
+  "rich>=13.7,<14",
+  "typer>=0.12,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9",
+]
+
+[project.scripts]
+opencode = "opencode_py.cli.main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools]
+packages = [
+  "opencode_py",
+  "opencode_py.cli",
+  "opencode_py.core",
+  "opencode_py.providers",
+  "opencode_py.tools",
+  "opencode_py.session",
+  "opencode_py.storage",
+]
