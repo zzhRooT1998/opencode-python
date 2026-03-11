@@ -254,8 +254,8 @@
   - 全量验证：`python -m pytest -v`
 
 ### T11 CLI 命令与渲染输出
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T03、T04、T10
 - 目标：把运行时能力接入 CLI，形成可用的用户入口。
 - 交付物：
@@ -268,6 +268,11 @@
   - 权限确认可通过 CLI 完成
   - CLI 在非交互模式下也能输出可读结果
 - 备注：
+  - 已把 `chat`、`run` 命令接到完整运行时，支持 `model`、`data_dir`、`workspace_root`、`permission_mode` 覆盖项
+  - 已新增 Rich `Panel` 输出和 CLI 权限确认回调，默认通过 `typer.confirm` 处理 `ask` 模式
+  - 已新增 `create_app_services` 装配入口，统一组装 repository、provider、retrieval、tool runtime 和 orchestrator
+  - 验证命令：`python -m pytest tests/cli/test_chat_command.py -v`
+  - 全量验证：`python -m pytest -v`
 
 ### T12 会话查询、恢复与审计呈现
 - 状态：`todo`
