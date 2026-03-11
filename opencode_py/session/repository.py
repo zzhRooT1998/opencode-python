@@ -18,6 +18,11 @@ class SessionRepository:
 
         return self._store.upsert_session(session_id=session_id, title=title)
 
+    def list_sessions(self, limit: int = 50) -> list[SessionRecord]:
+        """List the most recently updated sessions."""
+
+        return self._store.list_sessions(limit=limit)
+
     def append_message(self, session_id: str, message: Message) -> EventRecord:
         """Persist one normalized message as an event."""
 
@@ -87,4 +92,3 @@ class SessionRepository:
             artifacts=self._store.list_artifacts(session_id),
             latest_checkpoint=self._store.load_latest_checkpoint(session_id),
         )
-

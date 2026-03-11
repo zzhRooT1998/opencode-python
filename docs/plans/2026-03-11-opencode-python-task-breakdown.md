@@ -275,8 +275,8 @@
   - 全量验证：`python -m pytest -v`
 
 ### T12 会话查询、恢复与审计呈现
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T03、T10、T11
 - 目标：补齐 session 查询、任务追踪与恢复体验。
 - 交付物：
@@ -289,6 +289,11 @@
   - 可查看单个 session 的关键事件和产物
   - 中断任务可基于 checkpoint 恢复
 - 备注：
+  - 已新增 `session list`、`session show`、`session resume` 三个子命令
+  - `session show` 已输出会话摘要、最近事件、产物列表和最新 checkpoint 步骤，满足基础审计呈现
+  - CLI 侧恢复入口已直接接到 `LangGraphOrchestrator.resume(session_id)`
+  - 验证命令：`python -m pytest tests/cli/test_session_commands.py -v`
+  - 回归验证：`python -m pytest tests/cli/test_chat_command.py -v`
 
 ### T13 测试、样例文档与发布准备
 - 状态：`todo`
