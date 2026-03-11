@@ -85,8 +85,8 @@
   - 验证命令：`python -m pytest tests/core/test_schemas.py tests/config/test_settings.py -v`
 
 ### T03 存储层、会话模型与 checkpoint
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T02
 - 目标：实现会话持久化、事件记录、产物保存和 graph checkpoint。
 - 交付物：
@@ -99,6 +99,11 @@
   - 能按 step 落盘 checkpoint
   - 表初始化和基本 CRUD 有测试覆盖
 - 备注：
+  - 已新增 `opencode_py/storage/sqlite_store.py`，实现 SQLite 表初始化、session/event/artifact/checkpoint CRUD
+  - 已新增 `opencode_py/session/models.py` 和 `opencode_py/session/repository.py`
+  - checkpoint 直接持久化 `AgentState` JSON，便于后续 graph 恢复
+  - 验证命令：`python -m pytest tests/storage/test_sqlite_store.py tests/session/test_repository.py -v`
+  - 全量验证：`python -m pytest -v`
 
 ### T04 Provider 抽象与 OpenAI-compatible 接入
 - 状态：`todo`
