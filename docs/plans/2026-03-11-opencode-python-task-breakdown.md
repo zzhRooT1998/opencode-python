@@ -64,8 +64,8 @@
   - 验证命令：`python -m pytest tests/test_smoke_cli.py -v`、`python -m opencode_py --help`
 
 ### T02 核心 schema、配置模型与目录结构
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T01
 - 目标：统一运行时对象和配置加载方式，避免后续模块各自定义协议。
 - 交付物：
@@ -79,6 +79,10 @@
   - 配置支持 CLI 参数、用户配置、环境变量三层来源
   - 关键 schema 有单测覆盖
 - 备注：
+  - 已新增 `opencode_py/core/schemas.py`，统一消息、工具结果、计划步骤和 agent state
+  - 已新增 `opencode_py/config/settings.py`，实现 env -> config file -> CLI override 的加载优先级
+  - 已补齐 `agents`、`retrieval`、`security`、`core/graph`、`core/runtime` 目录骨架
+  - 验证命令：`python -m pytest tests/core/test_schemas.py tests/config/test_settings.py -v`
 
 ### T03 存储层、会话模型与 checkpoint
 - 状态：`todo`
