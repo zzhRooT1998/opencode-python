@@ -12,6 +12,7 @@ authors = [
   { name = "zzh" }
 ]
 dependencies = [
+  "langgraph>=1.1,<2",
   "openai>=1.30,<2",
   "pydantic>=2.7,<3",
   "rich>=13.7,<14",

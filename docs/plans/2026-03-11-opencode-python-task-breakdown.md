@@ -233,8 +233,8 @@
   - 全量验证：`python -m pytest -v`
 
 ### T10 LangGraph Orchestrator
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T03、T06、T07、T08、T09
 - 目标：把 Planner、Retriever、Executor、Reviewer 串成主执行链路。
 - 交付物：
@@ -247,6 +247,11 @@
   - Reviewer `revise` 时可回到当前 step 重试
   - 中断后可从 checkpoint 恢复
 - 备注：
+  - 已新增 `LangGraphOrchestrator`
+  - 节点流已覆盖 `load_context -> retrieve_context -> plan -> execute_step -> review_step -> commit_or_retry -> finalize`
+  - 已实现 reviewer 触发重试和基于最新 checkpoint 的 resume
+  - 验证命令：`python -m pytest tests/core/test_orchestrator.py -v`
+  - 全量验证：`python -m pytest -v`
 
 ### T11 CLI 命令与渲染输出
 - 状态：`todo`
