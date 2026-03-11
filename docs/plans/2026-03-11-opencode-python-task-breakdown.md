@@ -150,8 +150,8 @@
   - 全量验证：`python -m pytest -v`
 
 ### T06 轻量 RAG 索引与检索服务
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T02、T05
 - 目标：实现 MVP 级别的代码检索链路，向 Agent 提供 evidence pack。
 - 交付物：
@@ -165,6 +165,11 @@
   - 检索结果能按相关度重排
   - 检索无结果时返回可识别的空结果状态
 - 备注：
+  - 已新增 repository indexer、keyword ranker、heuristic reranker 和 retrieval service
+  - Python 文件优先按函数/类切片，其他文本文件按固定行数切片
+  - evidence pack 已包含 path、line_start、line_end、snippet、score、reason
+  - 验证命令：`python -m pytest tests/retrieval/test_service.py -v`
+  - 全量验证：`python -m pytest -v`
 
 ### T07 Planner Agent
 - 状态：`todo`
