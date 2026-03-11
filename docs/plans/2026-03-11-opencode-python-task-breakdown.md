@@ -213,8 +213,8 @@
   - 全量验证：`python -m pytest -v`
 
 ### T09 Reviewer Agent
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T04、T08
 - 目标：实现结果验收、重试建议和中止决策。
 - 交付物：
@@ -226,6 +226,11 @@
   - 遇到工具失败、结果不完整或高风险结果时可拒绝通过
   - reviewer 单测覆盖三种决策分支
 - 备注：
+  - 已新增 `ReviewerAgent`
+  - reviewer 优先解析 provider 返回的 JSON 审查结果，解析失败时走本地兜底规则
+  - 当前兜底规则已覆盖空输出、工具失败和明显危险输出
+  - 验证命令：`python -m pytest tests/agents/test_reviewer.py -v`
+  - 全量验证：`python -m pytest -v`
 
 ### T10 LangGraph Orchestrator
 - 状态：`todo`
