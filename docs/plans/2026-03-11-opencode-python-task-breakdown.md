@@ -172,8 +172,8 @@
   - 全量验证：`python -m pytest -v`
 
 ### T07 Planner Agent
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T04、T06
 - 目标：把用户目标和检索摘要转成结构化计划。
 - 交付物：
@@ -185,6 +185,11 @@
   - step 至少包含目标、建议工具和完成判定依据
   - planner 单测覆盖结构化输出解析
 - 备注：
+  - 已新增 `PlannerAgent`，优先解析 provider 返回的 JSON 计划
+  - 当 provider 输出不可解析时，会回退到单步保底计划，避免阻塞主链路
+  - planner prompt 已包含用户目标、检索摘要和最大步骤数约束
+  - 验证命令：`python -m pytest tests/agents/test_planner.py -v`
+  - 全量验证：`python -m pytest -v`
 
 ### T08 Executor Agent（ReAct-style）
 - 状态：`todo`
