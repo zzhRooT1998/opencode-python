@@ -192,8 +192,8 @@
   - 全量验证：`python -m pytest -v`
 
 ### T08 Executor Agent（ReAct-style）
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T04、T05、T06、T07
 - 目标：实现 `reason -> act -> observe -> continue` 的执行循环。
 - 交付物：
@@ -206,6 +206,11 @@
   - 工具结果会写回消息历史并触发下一轮推理
   - executor 单测覆盖 ReAct 主循环
 - 备注：
+  - 已新增 `ExecutorAgent` 和 `ExecutorResult`
+  - executor 已实现 assistant -> tool call -> tool result -> continue 的 ReAct-style loop
+  - 工具调用通过 `ToolRuntime` 执行，结果以 `tool` message 回填到对话历史
+  - 验证命令：`python -m pytest tests/agents/test_executor.py -v`
+  - 全量验证：`python -m pytest -v`
 
 ### T09 Reviewer Agent
 - 状态：`todo`
