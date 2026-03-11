@@ -106,8 +106,8 @@
   - 全量验证：`python -m pytest -v`
 
 ### T04 Provider 抽象与 OpenAI-compatible 接入
-- 状态：`todo`
-- 完成日期：
+- 状态：`done`
+- 完成日期：2026-03-11
 - 依赖：T02
 - 目标：实现与模型服务的统一交互层，支持文本与工具调用。
 - 交付物：
@@ -120,6 +120,11 @@
   - 能解析文本响应和 tool call 响应
   - provider 单测覆盖成功与失败路径
 - 备注：
+  - 已新增 `opencode_py/providers/base.py` 和 `opencode_py/providers/openai_provider.py`
+  - 已补齐统一 tool definition 和 provider output 抽象
+  - OpenAI-compatible provider 已实现消息序列化、tool schema 序列化和响应解析
+  - 验证命令：`python -m pytest tests/providers/test_openai_provider.py -v`
+  - 全量验证：`python -m pytest -v`
 
 ### T05 Tool Runtime 与权限策略
 - 状态：`todo`
